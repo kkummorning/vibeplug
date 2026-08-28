@@ -40,7 +40,7 @@ export function HowItWorks() {
           {steps.map((step) => (
             <li key={step.index} className="group bg-ink-1 p-7 sm:p-8">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[13px] text-accent">
+                <span className="font-mono text-[13px] text-accent-tint">
                   {step.index}
                 </span>
                 <span className="rounded-md border border-line bg-ink-2 px-2 py-1 font-mono text-[11px] text-subtle">

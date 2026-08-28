@@ -11,7 +11,7 @@ const written = [
 function Step({ label, detail }: { label: string; detail: string }) {
   return (
     <div className="flex flex-wrap items-baseline gap-x-2.5">
-      <span className="text-accent">◇</span>
+      <span className="text-accent-tint">◇</span>
       <span className="text-foreground/85">{label}</span>
       <span className="text-subtle">{detail}</span>
     </div>
@@ -24,7 +24,7 @@ export function TerminalDemo() {
     <div className="relative">
       <div
         aria-hidden
-        className="absolute -inset-x-10 -top-8 bottom-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_40%,rgba(255,194,71,0.10),transparent_75%)] blur-2xl"
+        className="absolute -inset-x-10 -top-8 bottom-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_40%,rgba(42,82,190,0.24),transparent_75%)] blur-2xl"
       />
       <div className="overflow-hidden rounded-2xl border border-line bg-ink-1 shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]">
         <div className="flex items-center gap-3 border-b border-line bg-ink-2/70 px-4 py-3">
@@ -40,7 +40,7 @@ export function TerminalDemo() {
 
         <div className="space-y-3 p-5 font-mono text-[12px] leading-6 sm:text-[13px]">
           <div className="flex gap-2.5">
-            <span className="text-accent">$</span>
+            <span className="text-accent-tint">$</span>
             <span className="text-foreground">
               npx biblelo@latest add auth-passkey
             </span>
@@ -69,8 +69,8 @@ export function TerminalDemo() {
           </div>
 
           <div className="flex gap-2.5 pt-1">
-            <span className="text-accent">$</span>
-            <span className="inline-block h-4 w-2 translate-y-0.5 bg-accent/80 animate-caret" />
+            <span className="text-accent-tint">$</span>
+            <span className="inline-block h-4 w-2 translate-y-0.5 bg-accent-tint/80 animate-caret" />
           </div>
         </div>
       </div>

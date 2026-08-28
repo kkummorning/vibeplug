@@ -67,7 +67,7 @@ export function Pricing() {
               key={plan.name}
               className={`relative flex flex-col rounded-2xl border p-7 sm:p-8 ${
                 plan.highlighted
-                  ? "border-accent/40 bg-ink-1 shadow-[0_0_0_1px_rgba(255,194,71,0.12),0_30px_70px_-45px_rgba(255,194,71,0.55)]"
+                  ? "border-accent-tint/40 bg-ink-1 shadow-[0_0_0_1px_rgba(113,152,244,0.14),0_30px_70px_-45px_rgba(42,82,190,0.9)]"
                   : "border-line bg-ink-1"
               }`}
             >
@@ -92,7 +92,7 @@ export function Pricing() {
                   <li key={feature} className="flex gap-3 text-[14px] leading-6">
                     <Check
                       className={`mt-0.5 size-4 shrink-0 ${
-                        plan.highlighted ? "text-accent" : "text-subtle"
+                        plan.highlighted ? "text-accent-tint" : "text-subtle"
                       }`}
                     />
                     <span className="text-muted">{feature}</span>

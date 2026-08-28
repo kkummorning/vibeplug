@@ -3,8 +3,9 @@ import { Container, SectionHeading } from "@/components/ui";
 type Layer = "UI" | "서버" | "데이터" | "설정";
 
 const layerColor: Record<Layer, string> = {
-  UI: "text-accent",
-  서버: "text-sky-400",
+  UI: "text-accent-tint",
+  // Was sky-400 — too close to the cerulean accent now that UI carries it.
+  서버: "text-amber-300",
   데이터: "text-emerald-400",
   설정: "text-violet-400",
 };

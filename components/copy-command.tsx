@@ -44,11 +44,11 @@ export function CopyCommand({ command, size = "lg", className = "" }: Props) {
         large ? "px-4 py-3.5 text-[13px] sm:text-sm" : "px-3 py-2 text-xs"
       } ${className}`}
     >
-      <span className="select-none text-accent/70">$</span>
+      <span className="select-none text-accent-tint/70">$</span>
       <span className="truncate text-foreground/90">{command}</span>
       <span
         className={`ml-auto flex shrink-0 items-center gap-1.5 rounded-md px-1.5 py-1 text-[11px] transition-colors ${
-          copied ? "text-accent" : "text-subtle group-hover:text-muted"
+          copied ? "text-accent-tint" : "text-subtle group-hover:text-muted"
         }`}
       >
         {copied ? (

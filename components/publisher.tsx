@@ -20,13 +20,13 @@ const points = [
 
 /** Hand-rolled token colours for the manifest sample: key, string, number. */
 const K = ({ children }: { children: ReactNode }) => (
-  <span className="text-accent">{children}</span>
+  <span className="text-accent-tint">{children}</span>
 );
 const S = ({ children }: { children: ReactNode }) => (
   <span className="text-emerald-400/85">{children}</span>
 );
 const N = ({ children }: { children: ReactNode }) => (
-  <span className="text-sky-400/85">{children}</span>
+  <span className="text-amber-300/85">{children}</span>
 );
 
 export function Publisher() {
@@ -49,7 +49,7 @@ export function Publisher() {
             <ul className="mt-10 space-y-6">
               {points.map((point) => (
                 <li key={point.title} className="flex gap-4">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md bg-accent/15 text-accent">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md bg-accent-tint/15 text-accent-tint">
                     <Check className="size-3.5" />
                   </span>
                   <div>

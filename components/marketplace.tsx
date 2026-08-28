@@ -13,7 +13,7 @@ function BlockCard({ block }: { block: Block }) {
           {block.category}
         </span>
         {block.badge && (
-          <span className="rounded-md bg-accent/15 px-2 py-1 text-[11px] font-semibold text-accent">
+          <span className="rounded-md bg-accent-tint/15 px-2 py-1 text-[11px] font-semibold text-accent-tint">
             {block.badge}
           </span>
         )}
@@ -29,7 +29,7 @@ function BlockCard({ block }: { block: Block }) {
       <div className="mt-5 flex items-center gap-2">
         <h3 className="text-[17px] font-semibold tracking-tight">{block.name}</h3>
         {block.official && (
-          <span className="rounded border border-accent/30 px-1.5 py-0.5 text-[10px] font-medium text-accent">
+          <span className="rounded border border-accent-tint/30 px-1.5 py-0.5 text-[10px] font-medium text-accent-tint">
             공식
           </span>
         )}
@@ -52,7 +52,7 @@ function BlockCard({ block }: { block: Block }) {
       <div className="mt-5 flex items-center gap-3 border-t border-line pt-4 text-[12px] text-subtle">
         <span className="truncate text-muted">{block.publisher}</span>
         <span className="flex items-center gap-1">
-          <Star className="size-3 text-accent" />
+          <Star className="size-3 text-accent-tint" />
           {block.rating}
         </span>
         <span>{block.installs} 설치</span>
@@ -124,7 +124,7 @@ export function Marketplace() {
                   onClick={() => setCategory(item)}
                   className={`h-9 rounded-lg border px-3 text-[13px] transition-colors ${
                     active
-                      ? "border-accent/40 bg-accent/15 font-medium text-accent"
+                      ? "border-accent-tint/40 bg-accent-tint/15 font-medium text-accent-tint"
                       : "border-line bg-ink-2/60 text-muted hover:border-line-strong hover:text-foreground"
                   }`}
                 >
@@ -155,7 +155,7 @@ export function Marketplace() {
             </p>
             <a
               href="#publish"
-              className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-accent hover:underline"
+              className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-accent-tint hover:underline"
             >
               블록 요청하기
               <ArrowRight className="size-3.5" />

@@ -32,7 +32,7 @@ export function Comparison() {
                 </th>
                 <th
                   scope="col"
-                  className="bg-accent/[0.07] px-6 py-5 text-[14px] font-semibold text-accent"
+                  className="bg-accent-tint/[0.07] px-6 py-5 text-[14px] font-semibold text-accent-tint"
                 >
                   바이블로
                 </th>
@@ -53,7 +53,7 @@ export function Comparison() {
                   >
                     {label}
                   </th>
-                  <td className="bg-accent/[0.07] px-6 py-4 text-[14px] font-medium text-foreground">
+                  <td className="bg-accent-tint/[0.07] px-6 py-4 text-[14px] font-medium text-foreground">
                     {biblelo}
                   </td>
                   <td className="px-6 py-4 text-[14px] text-muted">{saas}</td>

@@ -14,14 +14,14 @@ export function LogoMark({ className = "size-7" }: { className?: string }) {
         fill="var(--ink-2)"
         stroke="var(--line-strong)"
       />
-      <rect x="8" y="8" width="16" height="4" rx="1.6" fill="var(--accent)" />
+      <rect x="8" y="8" width="16" height="4" rx="1.6" fill="var(--accent-tint)" />
       <rect
         x="8"
         y="14"
         width="16"
         height="4"
         rx="1.6"
-        fill="var(--accent)"
+        fill="var(--accent-tint)"
         opacity="0.55"
       />
       <rect
@@ -30,7 +30,7 @@ export function LogoMark({ className = "size-7" }: { className?: string }) {
         width="16"
         height="4"
         rx="1.6"
-        fill="var(--accent)"
+        fill="var(--accent-tint)"
         opacity="0.25"
       />
     </svg>

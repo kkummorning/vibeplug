@@ -15,8 +15,8 @@ export function Container({
 /** Small mono label that opens a section. */
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
-      <span className="size-1 rounded-full bg-accent" />
+    <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-tint">
+      <span className="size-1 rounded-full bg-accent-tint" />
       {children}
     </span>
   );

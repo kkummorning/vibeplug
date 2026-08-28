@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-260px] size-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,194,71,0.13),transparent_62%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-[-260px] size-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(42,82,190,0.30),transparent_62%)] blur-3xl"
       />
 
       <Container className="relative pb-20 pt-16 sm:pt-24">
@@ -29,7 +29,7 @@ export function Hero() {
               href="#marketplace"
               className="group inline-flex items-center gap-2 rounded-full border border-line bg-ink-2/70 py-1 pl-1 pr-3 text-[13px] text-muted transition-colors hover:border-line-strong hover:text-foreground"
             >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-accent">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-tint/15 px-2.5 py-1 text-[11px] font-semibold text-accent-tint">
                 <Sparkle className="size-3" />
                 NEW
               </span>
@@ -40,7 +40,7 @@ export function Hero() {
             <h1 className="mt-7 text-[38px] font-semibold leading-[1.18] tracking-[-0.02em] sm:text-[56px] sm:leading-[1.08]">
               붙여넣으면
               <br />
-              <span className="text-accent">백엔드까지</span> 따라옵니다
+              <span className="text-accent-tint">백엔드까지</span> 따라옵니다
             </h1>
 
             <p className="mt-6 max-w-xl text-[16px] leading-8 text-muted sm:text-[17px]">

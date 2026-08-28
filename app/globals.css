@@ -20,9 +20,13 @@
   --muted: #9a9aa4;
   --subtle: #6c6c76;
 
-  --accent: #ffc247;
-  --accent-dim: #a9761d;
-  --accent-fg: #120d02;
+  /* Cerulean blue. `--accent` is the brand fill (buttons, pills, glows);
+     `--accent-tint` is the same hue lifted to stay legible as text and thin
+     strokes on the ink surfaces — #2a52be alone only clears 2.9:1 on #08090a. */
+  --accent: #2a52be;
+  --accent-tint: #7198f4;
+  --accent-dim: #1d3a87;
+  --accent-fg: #f2f6ff;
 }
 
 @theme inline {
@@ -41,6 +45,7 @@
   --color-subtle: var(--subtle);
 
   --color-accent: var(--accent);
+  --color-accent-tint: var(--accent-tint);
   --color-accent-dim: var(--accent-dim);
   --color-accent-fg: var(--accent-fg);
 
@@ -64,7 +69,7 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-tint);
   outline-offset: 2px;
 }
 
