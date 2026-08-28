@@ -1,0 +1,116 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { Close, Github, Menu } from "@/components/icons";
+import { Logo } from "@/components/logo";
+import { Container } from "@/components/ui";
+
+const nav = [
+  { href: "#marketplace", label: "마켓플레이스" },
+  { href: "#how", label: "작동 방식" },
+  { href: "#anatomy", label: "블록 구조" },
+  { href: "#publish", label: "퍼블리셔" },
+  { href: "#pricing", label: "요금제" },
+];
+
+export function SiteHeader() {
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
+  return (
+    <header
+      className={`sticky top-0 z-50 transition-colors duration-200 ${
+        scrolled
+          ? "border-b border-line bg-ink/80 backdrop-blur-xl"
+          : "border-b border-transparent"
+      }`}
+    >
+      <Container className="flex h-16 items-center justify-between gap-6">
+        <a href="#top" className="shrink-0" aria-label="바이블로 홈">
+          <Logo />
+        </a>
+
+        <nav className="hidden items-center gap-1 lg:flex">
+          {nav.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <a
+            href="#"
+            aria-label="GitHub 저장소"
+            className="hidden size-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-ink-2 hover:text-foreground sm:flex"
+          >
+            <Github className="size-[18px]" />
+          </a>
+          <a
+            href="#"
+            className="hidden h-9 items-center rounded-lg px-3 text-sm text-muted transition-colors hover:bg-ink-2 hover:text-foreground sm:flex"
+          >
+            로그인
+          </a>
+          <a
+            href="#marketplace"
+            className="flex h-9 items-center rounded-lg bg-foreground px-3.5 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
+          >
+            블록 둘러보기
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
+            aria-expanded={open}
+            className="flex size-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-ink-2 hover:text-foreground lg:hidden"
+          >
+            {open ? <Close className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
+      </Container>
+
+      {open && (
+        <div className="border-t border-line bg-ink/95 backdrop-blur-xl lg:hidden">
+          <Container className="flex flex-col py-3">
+            {nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-2 py-3 text-[15px] text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+              >
+                {item.label}
+              </a>
+            ))}
+            <a
+              href="#"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-2 py-3 text-[15px] text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+            >
+              로그인
+            </a>
+          </Container>
+        </div>
+      )}
+    </header>
+  );
+}
