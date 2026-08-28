@@ -49,10 +49,13 @@
   --color-accent-dim: var(--accent-dim);
   --color-accent-fg: var(--accent-fg);
 
-  --font-sans: var(--font-geist-sans), "Pretendard Variable", Pretendard,
+  /* The `var(--x, literal)` default keeps `font-family` valid even where the
+     next/font variable is absent — an undefined var would void the whole
+     declaration, not just its own slot. */
+  --font-sans: var(--font-pretendard, "Pretendard Variable"), Pretendard,
     "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), "D2Coding", ui-monospace, SFMono-Regular,
-    Menlo, monospace;
+  --font-mono: var(--font-jetbrains-mono, "JetBrains Mono"), "D2Coding",
+    ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 body {
