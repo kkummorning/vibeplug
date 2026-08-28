@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Close, Github, Menu } from "@/components/icons";
+import { Close, Github, Menu, Moon, Sun } from "@/components/icons";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/ui";
 
@@ -16,6 +16,9 @@ const nav = [
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  // Starts false to match the server-rendered <html>, which carries no `.dark`.
+  // The class is the single source of truth; nothing is persisted.
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -35,7 +38,7 @@ export function SiteHeader() {
     <header
       className={`sticky top-0 z-50 transition-colors duration-200 ${
         scrolled
-          ? "border-b border-line bg-ink/80 backdrop-blur-xl"
+          ? "border-b border-border bg-neutral-1000/80 backdrop-blur-xl"
           : "border-b border-transparent"
       }`}
     >
@@ -49,7 +52,7 @@ export function SiteHeader() {
             <a
               key={item.href}
               href={item.href}
-              className="rounded-lg px-3 py-2 text-sm text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+              className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground"
             >
               {item.label}
             </a>
@@ -57,22 +60,31 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setDark(document.documentElement.classList.toggle("dark"))}
+            aria-label={dark ? "라이트 모드로 전환" : "다크 모드로 전환"}
+            aria-pressed={dark}
+            className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground"
+          >
+            {dark ? <Sun className="size-[18px]" /> : <Moon className="size-[18px]" />}
+          </button>
           <a
             href="#"
             aria-label="GitHub 저장소"
-            className="hidden size-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-ink-2 hover:text-foreground sm:flex"
+            className="hidden size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground sm:flex"
           >
             <Github className="size-[18px]" />
           </a>
           <a
             href="#"
-            className="hidden h-9 items-center rounded-lg px-3 text-sm text-muted transition-colors hover:bg-ink-2 hover:text-foreground sm:flex"
+            className="hidden h-9 items-center rounded-lg px-3 text-sm text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground sm:flex"
           >
             로그인
           </a>
           <a
             href="#marketplace"
-            className="flex h-9 items-center rounded-lg bg-foreground px-3.5 text-sm font-semibold text-ink transition-opacity hover:opacity-90"
+            className="flex h-9 items-center rounded-lg bg-foreground px-3.5 text-sm font-semibold text-neutral-1000 transition-opacity hover:opacity-90"
           >
             블록 둘러보기
           </a>
@@ -81,7 +93,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
             aria-expanded={open}
-            className="flex size-9 items-center justify-center rounded-lg text-muted transition-colors hover:bg-ink-2 hover:text-foreground lg:hidden"
+            className="flex size-9 items-center justify-center rounded-lg text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground lg:hidden"
           >
             {open ? <Close className="size-5" /> : <Menu className="size-5" />}
           </button>
@@ -89,14 +101,14 @@ export function SiteHeader() {
       </Container>
 
       {open && (
-        <div className="border-t border-line bg-ink/95 backdrop-blur-xl lg:hidden">
+        <div className="border-t border-border bg-neutral-1000/95 backdrop-blur-xl lg:hidden">
           <Container className="flex flex-col py-3">
             {nav.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-lg px-2 py-3 text-[15px] text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+                className="rounded-lg px-2 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground"
               >
                 {item.label}
               </a>
@@ -104,7 +116,7 @@ export function SiteHeader() {
             <a
               href="#"
               onClick={() => setOpen(false)}
-              className="rounded-lg px-2 py-3 text-[15px] text-muted transition-colors hover:bg-ink-2 hover:text-foreground"
+              className="rounded-lg px-2 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-neutral-950 hover:text-foreground"
             >
               로그인
             </a>

@@ -36,28 +36,28 @@ export function HowItWorks() {
           description="바이블로는 당신의 앱이 계속 호출해야 하는 서비스가 아닙니다. 코드를 건네주고 물러납니다."
         />
 
-        <ol className="relative mt-16 grid gap-px overflow-hidden rounded-2xl border border-line bg-line md:grid-cols-3">
+        <ol className="relative mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
           {steps.map((step) => (
-            <li key={step.index} className="group bg-ink-1 p-7 sm:p-8">
+            <li key={step.index} className="group bg-secondary-800 p-7 sm:p-8">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-[13px] text-accent-tint">
+                <span className="font-mono text-[13px] text-accent">
                   {step.index}
                 </span>
-                <span className="rounded-md border border-line bg-ink-2 px-2 py-1 font-mono text-[11px] text-subtle">
+                <span className="rounded-md border border-border bg-neutral-950 px-2 py-1 font-mono text-[11px] text-tertiary">
                   {step.command}
                 </span>
               </div>
               <h3 className="mt-6 text-lg font-semibold tracking-tight">
                 {step.title}
               </h3>
-              <p className="mt-3 text-[14px] leading-7 text-muted">{step.body}</p>
+              <p className="mt-3 text-[14px] leading-7 text-muted-foreground">{step.body}</p>
             </li>
           ))}
         </ol>
 
-        <p className="mt-6 text-center text-[13px] text-subtle">
+        <p className="mt-6 text-center text-[13px] text-tertiary">
           블록이 업데이트되면{" "}
-          <code className="rounded bg-ink-2 px-1.5 py-0.5 font-mono text-[12px] text-muted">
+          <code className="rounded bg-neutral-950 px-1.5 py-0.5 font-mono text-[12px] text-muted-foreground">
             biblelo diff
           </code>{" "}
           가 당신이 고친 부분을 지키면서 바뀐 줄만 보여줍니다.

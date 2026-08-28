@@ -12,7 +12,7 @@ const rows: [string, string, string, string][] = [
 
 export function Comparison() {
   return (
-    <section className="border-t border-line bg-ink-1/40 py-24 sm:py-32">
+    <section className="border-t border-border bg-secondary-800/40 py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="비교"
@@ -20,44 +20,44 @@ export function Comparison() {
           description="SaaS의 속도와 직접 구현의 자유를 동시에 가져가는 것이 바이블로의 전부입니다."
         />
 
-        <div className="mt-14 overflow-x-auto rounded-2xl border border-line bg-ink-1">
+        <div className="mt-14 overflow-x-auto rounded-2xl border border-border bg-secondary-800">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <caption className="sr-only">
               바이블로, 매니지드 SaaS, 직접 구현 비교표
             </caption>
             <thead>
-              <tr className="border-b border-line">
-                <th scope="col" className="px-6 py-5 text-[13px] font-normal text-subtle">
+              <tr className="border-b border-border">
+                <th scope="col" className="px-6 py-5 text-[13px] font-normal text-tertiary">
                   기준
                 </th>
                 <th
                   scope="col"
-                  className="bg-accent-tint/[0.07] px-6 py-5 text-[14px] font-semibold text-accent-tint"
+                  className="bg-accent/[0.07] px-6 py-5 text-[14px] font-semibold text-accent"
                 >
                   바이블로
                 </th>
-                <th scope="col" className="px-6 py-5 text-[14px] font-medium text-muted">
+                <th scope="col" className="px-6 py-5 text-[14px] font-medium text-muted-foreground">
                   매니지드 SaaS
                 </th>
-                <th scope="col" className="px-6 py-5 text-[14px] font-medium text-muted">
+                <th scope="col" className="px-6 py-5 text-[14px] font-medium text-muted-foreground">
                   직접 구현
                 </th>
               </tr>
             </thead>
             <tbody>
               {rows.map(([label, biblelo, saas, diy]) => (
-                <tr key={label} className="border-b border-line last:border-0">
+                <tr key={label} className="border-b border-border last:border-0">
                   <th
                     scope="row"
-                    className="px-6 py-4 text-[13px] font-normal text-subtle"
+                    className="px-6 py-4 text-[13px] font-normal text-tertiary"
                   >
                     {label}
                   </th>
-                  <td className="bg-accent-tint/[0.07] px-6 py-4 text-[14px] font-medium text-foreground">
+                  <td className="bg-accent/[0.07] px-6 py-4 text-[14px] font-medium text-foreground">
                     {biblelo}
                   </td>
-                  <td className="px-6 py-4 text-[14px] text-muted">{saas}</td>
-                  <td className="px-6 py-4 text-[14px] text-muted">{diy}</td>
+                  <td className="px-6 py-4 text-[14px] text-muted-foreground">{saas}</td>
+                  <td className="px-6 py-4 text-[14px] text-muted-foreground">{diy}</td>
                 </tr>
               ))}
             </tbody>

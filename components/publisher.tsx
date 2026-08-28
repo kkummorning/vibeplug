@@ -20,7 +20,7 @@ const points = [
 
 /** Hand-rolled token colours for the manifest sample: key, string, number. */
 const K = ({ children }: { children: ReactNode }) => (
-  <span className="text-accent-tint">{children}</span>
+  <span className="text-accent">{children}</span>
 );
 const S = ({ children }: { children: ReactNode }) => (
   <span className="text-emerald-400/85">{children}</span>
@@ -41,7 +41,7 @@ export function Publisher() {
               <br />
               다시 짠 그 기능
             </h2>
-            <p className="mt-5 max-w-lg text-[15px] leading-8 text-muted">
+            <p className="mt-5 max-w-lg text-[15px] leading-8 text-muted-foreground">
               프로젝트를 새로 시작할 때마다 옮겨 붙이는 코드가 있다면, 그건 이미
               블록입니다. 매니페스트 하나만 얹어서 올리면 됩니다.
             </p>
@@ -49,12 +49,12 @@ export function Publisher() {
             <ul className="mt-10 space-y-6">
               {points.map((point) => (
                 <li key={point.title} className="flex gap-4">
-                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md bg-accent-tint/15 text-accent-tint">
+                  <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-md bg-accent/15 text-accent">
                     <Check className="size-3.5" />
                   </span>
                   <div>
                     <h3 className="text-[15px] font-medium">{point.title}</h3>
-                    <p className="mt-1.5 text-[14px] leading-7 text-muted">
+                    <p className="mt-1.5 text-[14px] leading-7 text-muted-foreground">
                       {point.body}
                     </p>
                   </div>
@@ -68,16 +68,16 @@ export function Publisher() {
             </div>
           </div>
 
-          <div className="reveal overflow-hidden rounded-2xl border border-line bg-ink-1">
-            <div className="flex items-center justify-between border-b border-line bg-ink-2/70 px-5 py-3">
-              <span className="font-mono text-[12px] text-muted">
+          <div className="reveal overflow-hidden rounded-2xl border border-border bg-secondary-800">
+            <div className="flex items-center justify-between border-b border-border bg-neutral-950/70 px-5 py-3">
+              <span className="font-mono text-[12px] text-muted-foreground">
                 biblelo.block.json
               </span>
               <span className="rounded border border-emerald-400/30 px-1.5 py-0.5 font-mono text-[10px] text-emerald-400">
                 검증됨
               </span>
             </div>
-            <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-[1.9] text-muted sm:text-[12.5px]">
+            <pre className="overflow-x-auto p-5 font-mono text-[12px] leading-[1.9] text-muted-foreground sm:text-[12.5px]">
               {"{"}
               {"\n  "}
               <K>&quot;name&quot;</K>: <S>&quot;billing-toss&quot;</S>,{"\n  "}
@@ -108,14 +108,14 @@ export function Publisher() {
               {" }"}
               {"\n}"}
             </pre>
-            <dl className="grid grid-cols-3 gap-px border-t border-line bg-line">
+            <dl className="grid grid-cols-3 gap-px border-t border-border bg-border">
               {[
                 { label: "수익 배분", value: "80%" },
                 { label: "평균 블록가", value: "₩45,000" },
                 { label: "상위 월수익", value: "₩820만" },
               ].map((item) => (
-                <div key={item.label} className="bg-ink-1 px-4 py-5 text-center">
-                  <dt className="text-[11px] text-subtle">{item.label}</dt>
+                <div key={item.label} className="bg-secondary-800 px-4 py-5 text-center">
+                  <dt className="text-[11px] text-tertiary">{item.label}</dt>
                   <dd className="mt-1 text-[17px] font-semibold tracking-tight">
                     {item.value}
                   </dd>

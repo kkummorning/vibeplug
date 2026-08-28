@@ -3,7 +3,7 @@ import { Container, SectionHeading } from "@/components/ui";
 type Layer = "UI" | "서버" | "데이터" | "설정";
 
 const layerColor: Record<Layer, string> = {
-  UI: "text-accent-tint",
+  UI: "text-accent",
   // Was sky-400 — too close to the cerulean accent now that UI carries it.
   서버: "text-amber-300",
   데이터: "text-emerald-400",
@@ -62,18 +62,18 @@ export function Anatomy() {
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
-          <div className="reveal overflow-hidden rounded-2xl border border-line bg-ink-1">
-            <div className="flex items-center justify-between border-b border-line bg-ink-2/70 px-5 py-3">
-              <span className="font-mono text-[12px] text-muted">
+          <div className="reveal overflow-hidden rounded-2xl border border-border bg-secondary-800">
+            <div className="flex items-center justify-between border-b border-border bg-neutral-950/70 px-5 py-3">
+              <span className="font-mono text-[12px] text-muted-foreground">
                 billing-stripe
               </span>
-              <span className="font-mono text-[11px] text-subtle">31 files</span>
+              <span className="font-mono text-[11px] text-tertiary">31 files</span>
             </div>
             <ul className="space-y-1.5 p-5 font-mono text-[12px] leading-6">
               {tree.map((row) => (
                 <li key={row.path} className="flex items-baseline gap-3">
                   <span
-                    className={row.dir ? "text-foreground/70" : "text-muted"}
+                    className={row.dir ? "text-foreground/70" : "text-muted-foreground"}
                   >
                     {row.path}
                   </span>
@@ -87,26 +87,26 @@ export function Anatomy() {
                 </li>
               ))}
             </ul>
-            <div className="border-t border-line px-5 py-4 font-mono text-[11px] text-subtle">
+            <div className="border-t border-border px-5 py-4 font-mono text-[11px] text-tertiary">
               + tests/billing/*.test.ts · + seed/plans.ts
             </div>
           </div>
 
-          <ul className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-1">
+          <ul className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-1">
             {layers.map((layer) => (
-              <li key={layer.name} className="bg-ink-1 p-6 sm:p-7">
+              <li key={layer.name} className="bg-secondary-800 p-6 sm:p-7">
                 <div className="flex items-center gap-2.5">
                   <span
                     className={`font-mono text-[11px] uppercase tracking-[0.14em] ${layerColor[layer.name]}`}
                   >
                     {layer.name}
                   </span>
-                  <span className="h-px flex-1 bg-line" />
+                  <span className="h-px flex-1 bg-border" />
                 </div>
                 <h3 className="mt-3 text-[16px] font-semibold tracking-tight">
                   {layer.title}
                 </h3>
-                <p className="mt-2 text-[14px] leading-7 text-muted">{layer.body}</p>
+                <p className="mt-2 text-[14px] leading-7 text-muted-foreground">{layer.body}</p>
               </li>
             ))}
           </ul>

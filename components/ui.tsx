@@ -15,8 +15,8 @@ export function Container({
 /** Small mono label that opens a section. */
 export function Eyebrow({ children }: { children: ReactNode }) {
   return (
-    <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-accent-tint">
-      <span className="size-1 rounded-full bg-accent-tint" />
+    <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.18em] text-accent">
+      <span className="size-1 rounded-full bg-accent" />
       {children}
     </span>
   );
@@ -45,7 +45,7 @@ export function SectionHeading({
         {title}
       </h2>
       {description && (
-        <p className="max-w-xl text-[15px] leading-7 text-muted">{description}</p>
+        <p className="max-w-xl text-[15px] leading-7 text-muted-foreground">{description}</p>
       )}
     </div>
   );
@@ -56,7 +56,7 @@ type AnchorProps = ComponentProps<"a">;
 export function PrimaryLink({ className = "", children, ...props }: AnchorProps) {
   return (
     <a
-      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-accent px-5 text-sm font-semibold text-accent-fg transition-[transform,box-shadow] hover:-translate-y-px hover:shadow-[0_8px_28px_-10px_var(--accent)] active:translate-y-0 ${className}`}
+      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition-[transform,box-shadow] hover:-translate-y-px hover:shadow-[0_8px_28px_-10px_var(--primary)] active:translate-y-0 ${className}`}
       {...props}
     >
       {children}
@@ -67,7 +67,7 @@ export function PrimaryLink({ className = "", children, ...props }: AnchorProps)
 export function GhostLink({ className = "", children, ...props }: AnchorProps) {
   return (
     <a
-      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-line bg-ink-2/60 px-5 text-sm font-medium text-foreground/90 transition-colors hover:border-line-strong hover:bg-ink-3 ${className}`}
+      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-neutral-950/60 px-5 text-sm font-medium text-foreground/90 transition-colors hover:border-input hover:bg-neutral-900 ${className}`}
       {...props}
     >
       {children}

@@ -5,9 +5,9 @@ export function StackMarquee() {
   const loop = [...stacks, ...stacks];
 
   return (
-    <section className="border-y border-line bg-ink-1/60 py-10">
+    <section className="border-y border-border bg-secondary-800/60 py-10">
       <Container>
-        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-subtle">
+        <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-tertiary">
           이미 쓰고 있는 스택 위에 그대로 얹힙니다
         </p>
       </Container>
@@ -19,10 +19,10 @@ export function StackMarquee() {
           {loop.map((name, i) => (
             <li
               key={`${name}-${i}`}
-              className="flex items-center gap-10 whitespace-nowrap font-mono text-[15px] text-muted"
+              className="flex items-center gap-10 whitespace-nowrap font-mono text-[15px] text-muted-foreground"
             >
               {name}
-              <span className="size-1 rounded-full bg-line-strong" />
+              <span className="size-1 rounded-full bg-input" />
             </li>
           ))}
         </ul>

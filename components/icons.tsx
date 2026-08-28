@@ -95,6 +95,23 @@ export function Github(props: IconProps) {
   );
 }
 
+export function Sun(props: IconProps) {
+  return (
+    <Stroke {...props}>
+      <circle cx="12" cy="12" r="4" />
+      <path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4" />
+    </Stroke>
+  );
+}
+
+export function Moon(props: IconProps) {
+  return (
+    <Stroke {...props}>
+      <path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z" />
+    </Stroke>
+  );
+}
+
 export function Terminal(props: IconProps) {
   return (
     <Stroke {...props}>

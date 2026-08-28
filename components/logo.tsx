@@ -11,17 +11,17 @@ export function LogoMark({ className = "size-7" }: { className?: string }) {
         width="30"
         height="30"
         rx="9"
-        fill="var(--ink-2)"
-        stroke="var(--line-strong)"
+        fill="var(--neutral-950)"
+        stroke="var(--input)"
       />
-      <rect x="8" y="8" width="16" height="4" rx="1.6" fill="var(--accent-tint)" />
+      <rect x="8" y="8" width="16" height="4" rx="1.6" fill="var(--accent)" />
       <rect
         x="8"
         y="14"
         width="16"
         height="4"
         rx="1.6"
-        fill="var(--accent-tint)"
+        fill="var(--accent)"
         opacity="0.55"
       />
       <rect
@@ -30,7 +30,7 @@ export function LogoMark({ className = "size-7" }: { className?: string }) {
         width="16"
         height="4"
         rx="1.6"
-        fill="var(--accent-tint)"
+        fill="var(--accent)"
         opacity="0.25"
       />
     </svg>
@@ -43,7 +43,7 @@ export function Logo({ className = "" }: { className?: string }) {
       <LogoMark />
       <span className="text-[15px] font-semibold tracking-tight">
         바이블로
-        <span className="ml-1.5 hidden font-mono text-[11px] font-normal text-subtle sm:inline">
+        <span className="ml-1.5 hidden font-mono text-[11px] font-normal text-tertiary sm:inline">
           biblelo
         </span>
       </span>

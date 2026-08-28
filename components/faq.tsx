@@ -34,23 +34,23 @@ export function Faq() {
       <Container>
         <SectionHeading eyebrow="FAQ" title="자주 묻는 것들" />
 
-        <div className="mx-auto mt-14 max-w-3xl divide-y divide-line overflow-hidden rounded-2xl border border-line bg-ink-1">
+        <div className="mx-auto mt-14 max-w-3xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-secondary-800">
           {faqs.map((faq) => (
             <details key={faq.q} className="group">
-              <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-5 text-[15px] font-medium transition-colors hover:bg-ink-2/60 sm:px-7">
+              <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-5 text-[15px] font-medium transition-colors hover:bg-neutral-950/60 sm:px-7">
                 {faq.q}
-                <ChevronDown className="ml-auto size-4 shrink-0 text-subtle transition-transform duration-200 group-open:rotate-180" />
+                <ChevronDown className="ml-auto size-4 shrink-0 text-tertiary transition-transform duration-200 group-open:rotate-180" />
               </summary>
-              <p className="px-6 pb-6 pr-12 text-[14px] leading-7 text-muted sm:px-7">
+              <p className="px-6 pb-6 pr-12 text-[14px] leading-7 text-muted-foreground sm:px-7">
                 {faq.a}
               </p>
             </details>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-[13px] text-subtle">
+        <p className="mt-8 text-center text-[13px] text-tertiary">
           더 궁금한 게 있다면{" "}
-          <a href="#" className="text-muted underline underline-offset-4 hover:text-foreground">
+          <a href="#" className="text-muted-foreground underline underline-offset-4 hover:text-foreground">
             디스코드
           </a>
           에서 물어보세요. 보통 하루 안에 답이 붙습니다.

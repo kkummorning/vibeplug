@@ -27,9 +27,9 @@ export function Hero() {
           <div className="flex flex-col items-start">
             <a
               href="#marketplace"
-              className="group inline-flex items-center gap-2 rounded-full border border-line bg-ink-2/70 py-1 pl-1 pr-3 text-[13px] text-muted transition-colors hover:border-line-strong hover:text-foreground"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-neutral-950/70 py-1 pl-1 pr-3 text-[13px] text-muted-foreground transition-colors hover:border-input hover:text-foreground"
             >
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent-tint/15 px-2.5 py-1 text-[11px] font-semibold text-accent-tint">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-accent">
                 <Sparkle className="size-3" />
                 NEW
               </span>
@@ -40,10 +40,10 @@ export function Hero() {
             <h1 className="mt-7 text-[38px] font-semibold leading-[1.18] tracking-[-0.02em] sm:text-[56px] sm:leading-[1.08]">
               붙여넣으면
               <br />
-              <span className="text-accent-tint">백엔드까지</span> 따라옵니다
+              <span className="text-accent">백엔드까지</span> 따라옵니다
             </h1>
 
-            <p className="mt-6 max-w-xl text-[16px] leading-8 text-muted sm:text-[17px]">
+            <p className="mt-6 max-w-xl text-[16px] leading-8 text-muted-foreground sm:text-[17px]">
               바이블로는 풀스택 블록 마켓플레이스입니다. shadcn이 컴포넌트를 건네주듯,
               바이블로는 UI·서버 액션·API 라우트·DB 스키마·마이그레이션을 한 번에
               당신의 저장소에 씁니다. 설치가 끝나는 순간, 그 코드는{" "}
@@ -61,7 +61,7 @@ export function Hero() {
               </div>
             </div>
 
-            <p className="mt-5 text-[13px] text-subtle">
+            <p className="mt-5 text-[13px] text-tertiary">
               카드 등록 없이 시작 · 오픈 블록은 언제나 무료 · MIT 라이선스
             </p>
           </div>
@@ -71,10 +71,10 @@ export function Hero() {
           </div>
         </div>
 
-        <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-4">
+        <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-ink-1 px-5 py-6 text-center">
-              <dt className="text-[12px] text-subtle">{stat.label}</dt>
+            <div key={stat.label} className="bg-secondary-800 px-5 py-6 text-center">
+              <dt className="text-[12px] text-tertiary">{stat.label}</dt>
               <dd className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-[28px]">
                 {stat.value}
               </dd>
