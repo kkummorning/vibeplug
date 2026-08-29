@@ -6,37 +6,18 @@ import { Close, Github, Menu, Moon, Sun } from "@/components/icons";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/ui";
 
+// 헤더는 모든 화면(app/layout.tsx)에 붙으므로 섹션 앵커도 랜딩 기준 절대 경로다.
+// "#marketplace"처럼 쓰면 /features 같은 다른 라우트에서는 같은 페이지 안에서
+// 대상 id를 찾지 못해 아무 일도 일어나지 않는다. "/#marketplace"는 랜딩으로
+// 이동한 뒤 해당 섹션으로 스크롤한다(각 섹션의 scroll-mt-20이 헤더 높이를 비운다).
 const nav = [
   { href: "/features", label: "기능 목록" },
-  { href: "#marketplace", label: "마켓플레이스" },
-  { href: "#how", label: "작동 방식" },
-  { href: "#anatomy", label: "블록 구조" },
-  { href: "#publish", label: "퍼블리셔" },
-  { href: "#pricing", label: "요금제" },
+  { href: "/#marketplace", label: "마켓플레이스" },
+  { href: "/#how", label: "작동 방식" },
+  { href: "/#anatomy", label: "블록 구조" },
+  { href: "/#publish", label: "퍼블리셔" },
+  { href: "/#pricing", label: "요금제" },
 ];
-
-// 별도 라우트(/…)만 <Link>로 내보내고, 랜딩 섹션 앵커(#…)는 기존대로 <a>다.
-function NavLink({
-  href,
-  className,
-  onClick,
-  children,
-}: {
-  href: string;
-  className?: string;
-  onClick?: () => void;
-  children: React.ReactNode;
-}) {
-  return href.startsWith("/") ? (
-    <Link href={href} className={className} onClick={onClick}>
-      {children}
-    </Link>
-  ) : (
-    <a href={href} className={className} onClick={onClick}>
-      {children}
-    </a>
-  );
-}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -68,19 +49,19 @@ export function SiteHeader() {
       }`}
     >
       <Container className="flex h-16 items-center justify-between gap-6">
-        <a href="#top" className="shrink-0" aria-label="바이블로 홈">
+        <Link href="/#top" className="shrink-0" aria-label="바이블로 홈">
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
-            <NavLink
+            <Link
               key={item.href}
               href={item.href}
               className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface-muted hover:text-foreground"
             >
               {item.label}
-            </NavLink>
+            </Link>
           ))}
         </nav>
 
@@ -107,12 +88,12 @@ export function SiteHeader() {
           >
             로그인
           </a>
-          <a
-            href="#marketplace"
+          <Link
+            href="/#marketplace"
             className="flex h-9 items-center rounded-lg bg-foreground px-3.5 text-sm font-semibold text-background transition-opacity hover:opacity-90"
           >
             블록 둘러보기
-          </a>
+          </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -129,14 +110,14 @@ export function SiteHeader() {
         <div className="border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
           <Container className="flex flex-col py-3">
             {nav.map((item) => (
-              <NavLink
+              <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-2 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-surface-muted hover:text-foreground"
               >
                 {item.label}
-              </NavLink>
+              </Link>
             ))}
             <a
               href="#"

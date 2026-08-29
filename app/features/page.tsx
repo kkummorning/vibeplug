@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { BlockCard } from "@/components/block-card";
 import type { Feature } from "@/lib/features";
+import { fetchFeatures } from "@/lib/features-server";
 
 export const metadata: Metadata = {
   title: "기능 목록",
@@ -12,34 +12,15 @@ export const metadata: Metadata = {
 // 랜딩 블록 카드가 쓰는 "₩39,000" 표기와 같은 형식.
 const priceFormat = new Intl.NumberFormat("ko-KR");
 
-/**
- * 목록은 app/api/features를 통해서만 받아온다 — 이 파일은 Supabase를 직접 열지 않는다.
- *
- * 자기 서버의 라우트를 부르는 fetch는 절대 URL이 필요한데, 빌드 시점에는 그 서버가
- * 아직 떠 있지 않다. headers()로 요청이 들어온 호스트를 읽으면 URL이 만들어지는
- * 동시에 이 페이지가 요청 시점 렌더링으로 넘어가서, 빌드 중 호출을 피할 수 있다.
- */
-async function getFeatures(): Promise<Feature[]> {
-  const headerList = await headers();
-  const host = headerList.get("host");
-  const protocol = headerList.get("x-forwarded-proto") ?? "http";
-
-  const response = await fetch(`${protocol}://${host}/api/features`);
-  if (!response.ok) {
-    throw new Error(`기능 목록 응답이 ${response.status}입니다.`);
-  }
-
-  return response.json();
-}
-
 // 목록만 그리는 화면이다. 상세·결제는 아직 붙이지 않았으므로
 // 카드에 href를 넘기지 않는다(넘기면 카드 전체가 링크가 된다).
+// 목록은 app/api/features를 통해서만 받아온다 — 이 파일은 Supabase를 직접 열지 않는다.
 export default async function FeaturesPage() {
   let features: Feature[] = [];
   let failed = false;
 
   try {
-    features = await getFeatures();
+    features = await fetchFeatures();
   } catch (error) {
     // 목록을 못 받아도 화면 자체는 뜨게 두고, 카드 자리에 안내만 대신 그린다.
     console.error("[features] 목록 조회 실패:", error);
