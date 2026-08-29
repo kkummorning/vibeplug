@@ -1,17 +1,42 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Close, Github, Menu, Moon, Sun } from "@/components/icons";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/ui";
 
 const nav = [
+  { href: "/features", label: "기능 목록" },
   { href: "#marketplace", label: "마켓플레이스" },
   { href: "#how", label: "작동 방식" },
   { href: "#anatomy", label: "블록 구조" },
   { href: "#publish", label: "퍼블리셔" },
   { href: "#pricing", label: "요금제" },
 ];
+
+// 별도 라우트(/…)만 <Link>로 내보내고, 랜딩 섹션 앵커(#…)는 기존대로 <a>다.
+function NavLink({
+  href,
+  className,
+  onClick,
+  children,
+}: {
+  href: string;
+  className?: string;
+  onClick?: () => void;
+  children: React.ReactNode;
+}) {
+  return href.startsWith("/") ? (
+    <Link href={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  ) : (
+    <a href={href} className={className} onClick={onClick}>
+      {children}
+    </a>
+  );
+}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
@@ -49,13 +74,13 @@ export function SiteHeader() {
 
         <nav className="hidden items-center gap-1 lg:flex">
           {nav.map((item) => (
-            <a
+            <NavLink
               key={item.href}
               href={item.href}
               className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface-muted hover:text-foreground"
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -104,14 +129,14 @@ export function SiteHeader() {
         <div className="border-t border-border bg-background/95 backdrop-blur-xl lg:hidden">
           <Container className="flex flex-col py-3">
             {nav.map((item) => (
-              <a
+              <NavLink
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
                 className="rounded-lg px-2 py-3 text-[15px] text-muted-foreground transition-colors hover:bg-surface-muted hover:text-foreground"
               >
                 {item.label}
-              </a>
+              </NavLink>
             ))}
             <a
               href="#"

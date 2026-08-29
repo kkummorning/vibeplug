@@ -1,72 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ArrowRight, Search, Star } from "@/components/icons";
+import { BlockCard } from "@/components/block-card";
+import { ArrowRight, Search } from "@/components/icons";
 import { Container, SectionHeading } from "@/components/ui";
-import { blocks, categories, type Block, type Category } from "@/lib/blocks";
-
-function BlockCard({ block }: { block: Block }) {
-  return (
-    <article className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-input hover:bg-surface-muted/60">
-      <div className="flex items-center gap-2">
-        <span className="rounded-md border border-border bg-surface-muted px-2 py-1 text-[11px] text-muted-foreground">
-          {block.category}
-        </span>
-        {block.badge && (
-          <span className="rounded-md bg-accent/15 px-2 py-1 text-[11px] font-semibold text-accent">
-            {block.badge}
-          </span>
-        )}
-        <span
-          className={`ml-auto text-[13px] font-semibold ${
-            block.price === "무료" ? "text-emerald-600 dark:text-emerald-400" : "text-foreground"
-          }`}
-        >
-          {block.price}
-        </span>
-      </div>
-
-      <div className="mt-5 flex items-center gap-2">
-        <h3 className="text-[17px] font-semibold tracking-tight">{block.name}</h3>
-        {block.official && (
-          <span className="rounded border border-accent/30 px-1.5 py-0.5 text-[10px] font-medium text-accent">
-            공식
-          </span>
-        )}
-      </div>
-      <p className="mt-1 font-mono text-[11px] text-tertiary">{block.slug}</p>
-
-      <p className="mt-3 flex-1 text-[14px] leading-7 text-muted-foreground">{block.summary}</p>
-
-      <ul className="mt-5 flex flex-wrap gap-1.5">
-        {block.stack.map((tech) => (
-          <li
-            key={tech}
-            className="rounded-md bg-muted px-2 py-1 font-mono text-[11px] text-tertiary"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
-
-      <div className="mt-5 flex items-center gap-3 border-t border-border pt-4 text-[12px] text-tertiary">
-        <span className="truncate text-muted-foreground">{block.publisher}</span>
-        <span className="flex items-center gap-1">
-          <Star className="size-3 text-accent" />
-          {block.rating}
-        </span>
-        <span>{block.installs} 설치</span>
-        <span className="ml-auto shrink-0">파일 {block.files}</span>
-      </div>
-
-      <a
-        href="#"
-        className="absolute inset-0 rounded-2xl"
-        aria-label={`${block.name} 블록 자세히 보기`}
-      />
-    </article>
-  );
-}
+import { blocks, categories, type Category } from "@/lib/blocks";
 
 export function Marketplace() {
   const [category, setCategory] = useState<Category>("전체");
@@ -142,7 +80,7 @@ export function Marketplace() {
         {results.length > 0 ? (
           <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {results.map((block) => (
-              <BlockCard key={block.slug} block={block} />
+              <BlockCard key={block.slug} block={block} href="#" />
             ))}
           </div>
         ) : (
