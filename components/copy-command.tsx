@@ -40,7 +40,7 @@ export function CopyCommand({ command, size = "lg", className = "" }: Props) {
       type="button"
       onClick={copy}
       aria-label={`명령어 복사: ${command}`}
-      className={`group inline-flex items-center gap-3 rounded-xl border border-border bg-neutral-950/80 text-left font-mono transition-colors hover:border-input ${
+      className={`group inline-flex items-center gap-3 rounded-xl border border-border bg-surface-muted/80 text-left font-mono transition-colors hover:border-input ${
         large ? "px-4 py-3.5 text-[13px] sm:text-sm" : "px-3 py-2 text-xs"
       } ${className}`}
     >

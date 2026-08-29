@@ -12,7 +12,7 @@ const rows: [string, string, string, string][] = [
 
 export function Comparison() {
   return (
-    <section className="border-t border-border bg-secondary-800/40 py-24 sm:py-32">
+    <section className="border-t border-border bg-surface/40 py-24 sm:py-32">
       <Container>
         <SectionHeading
           eyebrow="비교"
@@ -20,7 +20,7 @@ export function Comparison() {
           description="SaaS의 속도와 직접 구현의 자유를 동시에 가져가는 것이 바이블로의 전부입니다."
         />
 
-        <div className="mt-14 overflow-x-auto rounded-2xl border border-border bg-secondary-800">
+        <div className="mt-14 overflow-x-auto rounded-2xl border border-border bg-surface">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <caption className="sr-only">
               바이블로, 매니지드 SaaS, 직접 구현 비교표

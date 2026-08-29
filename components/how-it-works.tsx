@@ -38,12 +38,12 @@ export function HowItWorks() {
 
         <ol className="relative mt-16 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-3">
           {steps.map((step) => (
-            <li key={step.index} className="group bg-secondary-800 p-7 sm:p-8">
+            <li key={step.index} className="group bg-surface p-7 sm:p-8">
               <div className="flex items-center justify-between">
                 <span className="font-mono text-[13px] text-accent">
                   {step.index}
                 </span>
-                <span className="rounded-md border border-border bg-neutral-950 px-2 py-1 font-mono text-[11px] text-tertiary">
+                <span className="rounded-md border border-border bg-surface-muted px-2 py-1 font-mono text-[11px] text-tertiary">
                   {step.command}
                 </span>
               </div>
@@ -57,7 +57,7 @@ export function HowItWorks() {
 
         <p className="mt-6 text-center text-[13px] text-tertiary">
           블록이 업데이트되면{" "}
-          <code className="rounded bg-neutral-950 px-1.5 py-0.5 font-mono text-[12px] text-muted-foreground">
+          <code className="rounded bg-surface-muted px-1.5 py-0.5 font-mono text-[12px] text-muted-foreground">
             biblelo diff
           </code>{" "}
           가 당신이 고친 부분을 지키면서 바뀐 줄만 보여줍니다.

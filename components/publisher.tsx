@@ -23,10 +23,10 @@ const K = ({ children }: { children: ReactNode }) => (
   <span className="text-accent">{children}</span>
 );
 const S = ({ children }: { children: ReactNode }) => (
-  <span className="text-emerald-400/85">{children}</span>
+  <span className="text-emerald-600/85 dark:text-emerald-400/85">{children}</span>
 );
 const N = ({ children }: { children: ReactNode }) => (
-  <span className="text-amber-300/85">{children}</span>
+  <span className="text-amber-600/85 dark:text-amber-300/85">{children}</span>
 );
 
 export function Publisher() {
@@ -68,12 +68,12 @@ export function Publisher() {
             </div>
           </div>
 
-          <div className="reveal overflow-hidden rounded-2xl border border-border bg-secondary-800">
-            <div className="flex items-center justify-between border-b border-border bg-neutral-950/70 px-5 py-3">
+          <div className="reveal overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="flex items-center justify-between border-b border-border bg-surface-muted/70 px-5 py-3">
               <span className="font-mono text-[12px] text-muted-foreground">
                 biblelo.block.json
               </span>
-              <span className="rounded border border-emerald-400/30 px-1.5 py-0.5 font-mono text-[10px] text-emerald-400">
+              <span className="rounded border border-emerald-600/30 dark:border-emerald-400/30 px-1.5 py-0.5 font-mono text-[10px] text-emerald-600 dark:text-emerald-400">
                 검증됨
               </span>
             </div>
@@ -114,7 +114,7 @@ export function Publisher() {
                 { label: "평균 블록가", value: "₩45,000" },
                 { label: "상위 월수익", value: "₩820만" },
               ].map((item) => (
-                <div key={item.label} className="bg-secondary-800 px-4 py-5 text-center">
+                <div key={item.label} className="bg-surface px-4 py-5 text-center">
                   <dt className="text-[11px] text-tertiary">{item.label}</dt>
                   <dd className="mt-1 text-[17px] font-semibold tracking-tight">
                     {item.value}

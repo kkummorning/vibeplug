@@ -24,14 +24,14 @@ export function TerminalDemo() {
     <div className="relative">
       <div
         aria-hidden
-        className="absolute -inset-x-10 -top-8 bottom-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_40%,rgba(42,82,190,0.24),transparent_75%)] blur-2xl"
+        className="absolute -inset-x-10 -top-8 bottom-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_40%,var(--glow),transparent_75%)] blur-2xl"
       />
-      <div className="overflow-hidden rounded-2xl border border-border bg-secondary-800 shadow-[0_40px_90px_-40px_rgba(0,0,0,0.9)]">
-        <div className="flex items-center gap-3 border-b border-border bg-neutral-950/70 px-4 py-3">
+      <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-[0_40px_90px_-40px_var(--shadow-elevated)]">
+        <div className="flex items-center gap-3 border-b border-border bg-surface-muted/70 px-4 py-3">
           <div className="flex gap-1.5">
-            <span className="size-2.5 rounded-full bg-white/12" />
-            <span className="size-2.5 rounded-full bg-white/12" />
-            <span className="size-2.5 rounded-full bg-white/12" />
+            <span className="size-2.5 rounded-full bg-black/10 dark:bg-white/12" />
+            <span className="size-2.5 rounded-full bg-black/10 dark:bg-white/12" />
+            <span className="size-2.5 rounded-full bg-black/10 dark:bg-white/12" />
           </div>
           <span className="font-mono text-[11px] text-tertiary">
             ~/projects/acme — biblelo
@@ -53,7 +53,7 @@ export function TerminalDemo() {
           <div className="space-y-1 border-l border-border pl-4">
             {written.map((path) => (
               <div key={path} className="flex gap-2.5">
-                <span className="text-emerald-400/80">+</span>
+                <span className="text-emerald-600/80 dark:text-emerald-400/80">+</span>
                 <span className="truncate text-muted-foreground">{path}</span>
               </div>
             ))}
@@ -63,7 +63,7 @@ export function TerminalDemo() {
           <Step label=".env.example 갱신" detail="BIBLELO_AUTH_SECRET" />
 
           <div className="flex flex-wrap items-baseline gap-x-2.5 pt-1">
-            <span className="text-emerald-400">✔</span>
+            <span className="text-emerald-600 dark:text-emerald-400">✔</span>
             <span className="text-foreground/85">완료</span>
             <span className="text-tertiary">4.2초</span>
           </div>

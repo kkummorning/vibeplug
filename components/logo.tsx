@@ -11,7 +11,7 @@ export function LogoMark({ className = "size-7" }: { className?: string }) {
         width="30"
         height="30"
         rx="9"
-        fill="var(--neutral-950)"
+        fill="var(--surface-muted)"
         stroke="var(--input)"
       />
       <rect x="8" y="8" width="16" height="4" rx="1.6" fill="var(--accent)" />

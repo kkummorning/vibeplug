@@ -7,9 +7,9 @@ import { blocks, categories, type Block, type Category } from "@/lib/blocks";
 
 function BlockCard({ block }: { block: Block }) {
   return (
-    <article className="group relative flex flex-col rounded-2xl border border-border bg-secondary-800 p-6 transition-colors hover:border-input hover:bg-neutral-950/60">
+    <article className="group relative flex flex-col rounded-2xl border border-border bg-surface p-6 transition-colors hover:border-input hover:bg-surface-muted/60">
       <div className="flex items-center gap-2">
-        <span className="rounded-md border border-border bg-neutral-950 px-2 py-1 text-[11px] text-muted-foreground">
+        <span className="rounded-md border border-border bg-surface-muted px-2 py-1 text-[11px] text-muted-foreground">
           {block.category}
         </span>
         {block.badge && (
@@ -19,7 +19,7 @@ function BlockCard({ block }: { block: Block }) {
         )}
         <span
           className={`ml-auto text-[13px] font-semibold ${
-            block.price === "무료" ? "text-emerald-400" : "text-foreground"
+            block.price === "무료" ? "text-emerald-600 dark:text-emerald-400" : "text-foreground"
           }`}
         >
           {block.price}
@@ -42,7 +42,7 @@ function BlockCard({ block }: { block: Block }) {
         {block.stack.map((tech) => (
           <li
             key={tech}
-            className="rounded-md bg-neutral-900 px-2 py-1 font-mono text-[11px] text-tertiary"
+            className="rounded-md bg-muted px-2 py-1 font-mono text-[11px] text-tertiary"
           >
             {tech}
           </li>
@@ -88,7 +88,7 @@ export function Marketplace() {
   return (
     <section
       id="marketplace"
-      className="scroll-mt-20 border-t border-border bg-secondary-800/40 py-24 sm:py-32"
+      className="scroll-mt-20 border-t border-border bg-surface/40 py-24 sm:py-32"
     >
       <Container>
         <SectionHeading
@@ -104,7 +104,7 @@ export function Marketplace() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="블록 검색 — 결제, RAG, Drizzle…"
-              className="h-11 w-full rounded-xl border border-border bg-neutral-950/70 pl-10 pr-3 text-sm text-foreground placeholder:text-tertiary transition-colors hover:border-input focus:border-input"
+              className="h-11 w-full rounded-xl border border-border bg-surface-muted/70 pl-10 pr-3 text-sm text-foreground placeholder:text-tertiary transition-colors hover:border-input focus:border-input"
             />
             <span className="sr-only">블록 검색</span>
           </label>
@@ -125,7 +125,7 @@ export function Marketplace() {
                   className={`h-9 rounded-lg border px-3 text-[13px] transition-colors ${
                     active
                       ? "border-accent/40 bg-accent/15 font-medium text-accent"
-                      : "border-border bg-neutral-950/60 text-muted-foreground hover:border-input hover:text-foreground"
+                      : "border-border bg-surface-muted/60 text-muted-foreground hover:border-input hover:text-foreground"
                   }`}
                 >
                   {item}
@@ -146,7 +146,7 @@ export function Marketplace() {
             ))}
           </div>
         ) : (
-          <div className="mt-5 rounded-2xl border border-dashed border-border bg-secondary-800 p-14 text-center">
+          <div className="mt-5 rounded-2xl border border-dashed border-border bg-surface p-14 text-center">
             <p className="text-[15px] text-muted-foreground">
               &lsquo;{query}&rsquo; 에 맞는 블록이 아직 없습니다.
             </p>
@@ -166,7 +166,7 @@ export function Marketplace() {
         <div className="mt-10 flex justify-center">
           <a
             href="#"
-            className="group inline-flex items-center gap-2 rounded-xl border border-border bg-neutral-950/60 px-5 py-3 text-sm font-medium transition-colors hover:border-input hover:bg-neutral-900"
+            className="group inline-flex items-center gap-2 rounded-xl border border-border bg-surface-muted/60 px-5 py-3 text-sm font-medium transition-colors hover:border-input hover:bg-muted"
           >
             레지스트리 전체 보기
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

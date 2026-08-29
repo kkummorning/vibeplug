@@ -5,9 +5,9 @@ type Layer = "UI" | "서버" | "데이터" | "설정";
 const layerColor: Record<Layer, string> = {
   UI: "text-accent",
   // Was sky-400 — too close to the cerulean accent now that UI carries it.
-  서버: "text-amber-300",
-  데이터: "text-emerald-400",
-  설정: "text-violet-400",
+  서버: "text-amber-600 dark:text-amber-300",
+  데이터: "text-emerald-600 dark:text-emerald-400",
+  설정: "text-violet-600 dark:text-violet-400",
 };
 
 const tree: { path: string; layer?: Layer; dir?: boolean }[] = [
@@ -62,8 +62,8 @@ export function Anatomy() {
         />
 
         <div className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,480px)_minmax(0,1fr)]">
-          <div className="reveal overflow-hidden rounded-2xl border border-border bg-secondary-800">
-            <div className="flex items-center justify-between border-b border-border bg-neutral-950/70 px-5 py-3">
+          <div className="reveal overflow-hidden rounded-2xl border border-border bg-surface">
+            <div className="flex items-center justify-between border-b border-border bg-surface-muted/70 px-5 py-3">
               <span className="font-mono text-[12px] text-muted-foreground">
                 billing-stripe
               </span>
@@ -94,7 +94,7 @@ export function Anatomy() {
 
           <ul className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-1">
             {layers.map((layer) => (
-              <li key={layer.name} className="bg-secondary-800 p-6 sm:p-7">
+              <li key={layer.name} className="bg-surface p-6 sm:p-7">
                 <div className="flex items-center gap-2.5">
                   <span
                     className={`font-mono text-[11px] uppercase tracking-[0.14em] ${layerColor[layer.name]}`}

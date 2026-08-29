@@ -6,14 +6,14 @@ export function Cta() {
   return (
     <section className="pb-28 pt-4">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-secondary-800 px-6 py-20 text-center sm:px-16">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface px-6 py-20 text-center sm:px-16">
           <div
             aria-hidden
             className="bg-dots mask-top pointer-events-none absolute inset-0 opacity-60"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute left-1/2 top-0 size-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(42,82,190,0.34),transparent_62%)] blur-3xl"
+            className="pointer-events-none absolute left-1/2 top-0 size-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,var(--glow),transparent_62%)] blur-3xl"
           />
 
           <div className="relative mx-auto flex max-w-2xl flex-col items-center">

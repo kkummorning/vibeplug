@@ -34,10 +34,10 @@ export function Faq() {
       <Container>
         <SectionHeading eyebrow="FAQ" title="자주 묻는 것들" />
 
-        <div className="mx-auto mt-14 max-w-3xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-secondary-800">
+        <div className="mx-auto mt-14 max-w-3xl divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface">
           {faqs.map((faq) => (
             <details key={faq.q} className="group">
-              <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-5 text-[15px] font-medium transition-colors hover:bg-neutral-950/60 sm:px-7">
+              <summary className="flex cursor-pointer list-none items-center gap-4 px-6 py-5 text-[15px] font-medium transition-colors hover:bg-surface-muted/60 sm:px-7">
                 {faq.q}
                 <ChevronDown className="ml-auto size-4 shrink-0 text-tertiary transition-transform duration-200 group-open:rotate-180" />
               </summary>

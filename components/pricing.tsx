@@ -52,7 +52,7 @@ export function Pricing() {
   return (
     <section
       id="pricing"
-      className="scroll-mt-20 border-t border-border bg-secondary-800/40 py-24 sm:py-32"
+      className="scroll-mt-20 border-t border-border bg-surface/40 py-24 sm:py-32"
     >
       <Container>
         <SectionHeading
@@ -67,8 +67,8 @@ export function Pricing() {
               key={plan.name}
               className={`relative flex flex-col rounded-2xl border p-7 sm:p-8 ${
                 plan.highlighted
-                  ? "border-accent/40 bg-secondary-800 shadow-[0_0_0_1px_rgba(113,152,244,0.14),0_30px_70px_-45px_rgba(42,82,190,0.9)]"
-                  : "border-border bg-secondary-800"
+                  ? "border-accent/40 bg-surface shadow-[0_0_0_1px_var(--ring-tint),0_30px_70px_-45px_var(--shadow-primary)]"
+                  : "border-border bg-surface"
               }`}
             >
               {plan.highlighted && (
@@ -105,7 +105,7 @@ export function Pricing() {
                 className={`mt-8 flex h-11 items-center justify-center rounded-xl text-sm font-semibold transition-colors ${
                   plan.highlighted
                     ? "bg-primary text-primary-foreground hover:opacity-90"
-                    : "border border-border bg-neutral-950 text-foreground hover:border-input hover:bg-neutral-900"
+                    : "border border-border bg-surface-muted text-foreground hover:border-input hover:bg-muted"
                 }`}
               >
                 {plan.cta}
@@ -114,7 +114,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <div className="mt-6 flex flex-col items-center gap-3 rounded-2xl border border-border bg-secondary-800 px-7 py-6 text-center sm:flex-row sm:text-left">
+        <div className="mt-6 flex flex-col items-center gap-3 rounded-2xl border border-border bg-surface px-7 py-6 text-center sm:flex-row sm:text-left">
           <div>
             <h3 className="text-[15px] font-semibold">엔터프라이즈</h3>
             <p className="mt-1 text-[14px] leading-7 text-muted-foreground">
@@ -123,7 +123,7 @@ export function Pricing() {
           </div>
           <a
             href="#"
-            className="shrink-0 rounded-xl border border-border bg-neutral-950 px-5 py-2.5 text-sm font-medium transition-colors hover:border-input hover:bg-neutral-900 sm:ml-auto"
+            className="shrink-0 rounded-xl border border-border bg-surface-muted px-5 py-2.5 text-sm font-medium transition-colors hover:border-input hover:bg-muted sm:ml-auto"
           >
             도입 문의
           </a>

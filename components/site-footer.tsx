@@ -23,7 +23,7 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-secondary-800/40">
+    <footer className="border-t border-border bg-surface/40">
       <Container className="py-16">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,2fr)]">
           <div>
@@ -41,7 +41,7 @@ export function SiteFooter() {
                 <Github className="size-[18px]" />
               </a>
               <span className="flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-[12px] text-muted-foreground">
-                <span className="size-1.5 rounded-full bg-emerald-400" />
+                <span className="size-1.5 rounded-full bg-emerald-600 dark:bg-emerald-400" />
                 모든 시스템 정상
               </span>
             </div>

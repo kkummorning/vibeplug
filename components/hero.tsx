@@ -19,7 +19,7 @@ export function Hero() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-[-260px] size-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(42,82,190,0.30),transparent_62%)] blur-3xl"
+        className="pointer-events-none absolute left-1/2 top-[-260px] size-[720px] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,var(--glow),transparent_62%)] blur-3xl"
       />
 
       <Container className="relative pb-20 pt-16 sm:pt-24">
@@ -27,7 +27,7 @@ export function Hero() {
           <div className="flex flex-col items-start">
             <a
               href="#marketplace"
-              className="group inline-flex items-center gap-2 rounded-full border border-border bg-neutral-950/70 py-1 pl-1 pr-3 text-[13px] text-muted-foreground transition-colors hover:border-input hover:text-foreground"
+              className="group inline-flex items-center gap-2 rounded-full border border-border bg-surface-muted/70 py-1 pl-1 pr-3 text-[13px] text-muted-foreground transition-colors hover:border-input hover:text-foreground"
             >
               <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-1 text-[11px] font-semibold text-accent">
                 <Sparkle className="size-3" />
@@ -73,7 +73,7 @@ export function Hero() {
 
         <dl className="mt-20 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-4">
           {stats.map((stat) => (
-            <div key={stat.label} className="bg-secondary-800 px-5 py-6 text-center">
+            <div key={stat.label} className="bg-surface px-5 py-6 text-center">
               <dt className="text-[12px] text-tertiary">{stat.label}</dt>
               <dd className="mt-1.5 text-2xl font-semibold tracking-tight sm:text-[28px]">
                 {stat.value}

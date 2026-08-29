@@ -67,7 +67,7 @@ export function PrimaryLink({ className = "", children, ...props }: AnchorProps)
 export function GhostLink({ className = "", children, ...props }: AnchorProps) {
   return (
     <a
-      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-neutral-950/60 px-5 text-sm font-medium text-foreground/90 transition-colors hover:border-input hover:bg-neutral-900 ${className}`}
+      className={`inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-border bg-surface-muted/60 px-5 text-sm font-medium text-foreground/90 transition-colors hover:border-input hover:bg-muted ${className}`}
       {...props}
     >
       {children}

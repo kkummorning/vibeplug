@@ -5,7 +5,7 @@ export function StackMarquee() {
   const loop = [...stacks, ...stacks];
 
   return (
-    <section className="border-y border-border bg-secondary-800/60 py-10">
+    <section className="border-y border-border bg-surface/60 py-10">
       <Container>
         <p className="text-center font-mono text-[11px] uppercase tracking-[0.18em] text-tertiary">
           이미 쓰고 있는 스택 위에 그대로 얹힙니다

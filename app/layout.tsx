@@ -56,10 +56,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  // `dark`가 이 랜딩의 기본 테마다. SiteHeader의 토글이 이 클래스를 껐다 켜고,
+  // 클래스가 빠지면 globals.css의 :root(라이트)가 드러난다.
   return (
     <html
       lang="ko"
-      className={`${pretendard.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      className={`dark ${pretendard.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-background font-sans">
         <SiteHeader />

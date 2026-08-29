@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* 테마는 <html>의 `.dark` 클래스로 전환한다(OS 설정이 아님).
+   Tailwind v4의 `dark:` 기본값은 prefers-color-scheme이므로 클래스 기준으로 바꿔준다. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* ---------------------------------------------------------------------------
    측정 출처: https://kaix.framer.website/ (Framer 템플릿 "Kai X")
    - 색상/폰트만 기존 바이블로 랜딩 값(app/globals.css, app/fonts)을 사용.
@@ -57,6 +61,10 @@
   --color-popover: var(--popover); /* 툴팁, 토스트 등 공중에 뜬 요소의 배경 */
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-surface-muted: var(
+    --surface-muted
+  ); /* 패널 안의 헤더 스트립·인셋·호버 채움 */
+  --color-surface: var(--surface); /* 섹션 위에 올라가는 패널/카드 바탕 */
   --color-foreground: var(--foreground); /* 기본 본문 및 타이틀 */
   --color-background: var(--background);
   --color-success: var(--success);
@@ -209,41 +217,63 @@
   --aspect-portrait: var(--ratio-portrait);
 }
 
+/* :root = 라이트 테마. 다크는 아래 `.dark` 블록이 덮어쓴다.
+   랜딩은 다크가 기본값이므로 app/layout.tsx의 <html>이 `dark`를 달고 렌더된다. */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --background: var(--neutral-1000);
-  --foreground: var(--neutral-100);
-  --card: var(--neutral-950);
-  --card-foreground: var(--neutral-100);
-  --popover: var(--neutral-900);
-  --popover-foreground: var(--neutral-100);
+  --background: var(--neutral-50);
+  --foreground: var(--secondary-500);
+  --surface: var(--neutral-0);
+  --surface-muted: var(--neutral-100);
+  --card: var(--neutral-0);
+  --card-foreground: var(--secondary-500);
+  --popover: var(--neutral-0);
+  --popover-foreground: var(--secondary-500);
   --primary: var(--primary-500);
   --primary-foreground: var(--primary-50);
-  --secondary: var(--secondary-500);
-  --secondary-foreground: var(--neutral-100);
-  --muted: var(--neutral-900);
-  --muted-foreground: var(--neutral-400);
-  --accent: var(--accent-500);
-  --accent-foreground: var(--neutral-1000);
-  --tertiary: var(--neutral-600);
-  --border: rgba(255, 255, 255, 0.08);
-  --input: rgba(255, 255, 255, 0.16);
-  --ring: var(--accent-500);
+  --secondary: var(--neutral-100);
+  --secondary-foreground: var(--secondary-500);
+  /* surface-muted보다 한 단 더 진해야 그 위에 얹힌 호버/칩이 구분된다.
+     다크에서 neutral-900이 neutral-950보다 한 단 밝은 것과 같은 관계다. */
+  --muted: var(--neutral-200);
+  --muted-foreground: var(--secondary-400); /* 본문 보조 텍스트, 흰 배경에서 7.7:1 */
+  /* 다크의 accent-500(#7198f4)은 흰 배경에서 2.6:1로 읽히지 않아
+     라이트에서는 세루리안 본색으로 내린다(6.6:1). */
+  --accent: var(--primary-500);
+  --accent-foreground: var(--neutral-0);
+  --tertiary: var(--neutral-600); /* 캡션·placeholder, 5.0:1 */
+  --border: rgba(0, 0, 0, 0.1);
+  --input: rgba(0, 0, 0, 0.18);
+  --ring: var(--primary-500);
+  --success: #1a7f37;
+  --info: #2a52be;
+  --warning: #9a6700;
+  --destructive: #cf222e;
   --chart-1: var(--primary-500);
-  --chart-2: var(--accent-500);
-  --chart-3: var(--primary-300);
-  --chart-4: var(--primary-700);
-  --chart-5: var(--neutral-600);
+  --chart-2: var(--primary-700);
+  --chart-3: var(--accent-600);
+  --chart-4: var(--primary-300);
+  --chart-5: var(--neutral-500);
   --radius: 0.625rem; /* 10px — 참고 사이트 최빈 둥글기 */
-  --sidebar: var(--neutral-950);
-  --sidebar-foreground: var(--neutral-100);
+  --sidebar: var(--neutral-0);
+  --sidebar-foreground: var(--secondary-500);
   --sidebar-primary: var(--primary-500);
   --sidebar-primary-foreground: var(--primary-50);
-  --sidebar-accent: var(--neutral-900);
-  --sidebar-accent-foreground: var(--neutral-100);
-  --sidebar-border: rgba(255, 255, 255, 0.08);
-  --sidebar-ring: var(--accent-500);
+  --sidebar-accent: var(--neutral-100);
+  --sidebar-accent-foreground: var(--secondary-500);
+  --sidebar-border: rgba(0, 0, 0, 0.1);
+  --sidebar-ring: var(--primary-500);
+
+  /* 배경 장식 — 유틸리티(.bg-grid/.bg-dots)와 인라인 글로우가 참조한다 */
+  --grid-line: rgba(0, 0, 0, 0.05);
+  --dot: rgba(0, 0, 0, 0.09);
+  --glow: rgba(42, 82, 190, 0.14);
+  --shadow-elevated: rgba(16, 19, 21, 0.16);
+  --shadow-primary: rgba(42, 82, 190, 0.28);
+  --ring-tint: rgba(42, 82, 190, 0.18);
+  --scrollbar-thumb: var(--neutral-200);
+  --scrollbar-thumb-hover: var(--neutral-300);
 
   /* =========================================
 	 z-index
@@ -388,11 +418,7 @@
   --neutral-950: #101315;
   --neutral-1000: #08090a;
 
-  /* Status */
-  --success: #3fb950;
-  --destructive: #f85149;
-  --warning: #d29922;
-  --info: #7198f4;
+  /* Status는 원시값이 아니라 테마별 시맨틱 값이라 위 :root / 아래 .dark 에서 정의한다. */
 
   /* =========================================
      타이포그래피: Primitive
@@ -523,10 +549,16 @@
   line-height: var(--lh-normal);
 }
 
-/* 기존 랜딩은 다크 전용이라 :root와 .dark가 동일한 값을 갖는다 */
+/* 랜딩의 기본 테마. 값은 라이트 도입 전 :root가 갖고 있던 것과 동일하다. */
 .dark {
+  color-scheme: dark;
+
   --background: var(--neutral-1000);
   --foreground: var(--neutral-100);
+  /* --surface는 기존 컴포넌트가 쓰던 secondary-800(#0b0d0f),
+     --surface-muted는 neutral-950(#101315) — 다크 화면은 그대로 유지된다. */
+  --surface: var(--secondary-800);
+  --surface-muted: var(--neutral-950);
   --card: var(--neutral-950);
   --card-foreground: var(--neutral-100);
   --popover: var(--neutral-900);
@@ -560,6 +592,15 @@
   --sidebar-accent-foreground: var(--neutral-100);
   --sidebar-border: var(--border);
   --sidebar-ring: var(--accent-500);
+
+  --grid-line: rgba(255, 255, 255, 0.045);
+  --dot: rgba(255, 255, 255, 0.11);
+  --glow: rgba(42, 82, 190, 0.3);
+  --shadow-elevated: rgba(0, 0, 0, 0.9);
+  --shadow-primary: rgba(42, 82, 190, 0.9);
+  --ring-tint: rgba(113, 152, 244, 0.14);
+  --scrollbar-thumb: #26292d;
+  --scrollbar-thumb-hover: #35393e;
 }
 
 /* 참고 사이트 브레이크포인트: 데스크톱 1200px (템플릿의 1280px → 실측값으로 교체) */
@@ -617,13 +658,13 @@ body {
    --------------------------------------------------------------------------- */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
 .bg-dots {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.11) 1px, transparent 1px);
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
@@ -732,15 +773,15 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--neutral-1000);
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #26292d;
-  border: 2px solid var(--neutral-1000);
+  background: var(--scrollbar-thumb);
+  border: 2px solid var(--background);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #35393e;
+  background: var(--scrollbar-thumb-hover);
 }
